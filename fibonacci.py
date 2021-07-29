@@ -1,4 +1,5 @@
 from datetime import datetime
+import time
 
 
 def calc_fibonacci(iteration=100):
@@ -9,8 +10,11 @@ def calc_fibonacci(iteration=100):
         fibonacci_series = [0, 1]
         open("log.txt", "a").write("fibo.txt FileNotFoundError\n")
 
+    calculation_time = time.time()
     [fibonacci_series.append(fibonacci_series[-1] + fibonacci_series[-2]) for i in range(iteration)]
-    open("log.txt", "a").write("calculations completed\n")
+    open("log.txt", "a").write(f"calculations completed : {time.time()-calculation_time}sec\n")
+    open("log.txt", "a").write(f"iteration = {iteration}\n")
+    open("log.txt", "a").write(f"len = {len(fibonacci_series)}\n")
 
     f = open("fibo.txt", "w")
     [f.write(f",{i}") for i in fibonacci_series]
