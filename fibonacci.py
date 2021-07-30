@@ -3,6 +3,8 @@ import time
 
 
 def calc_fibonacci(iteration=100):
+    open("log.txt", "a").write(f"{datetime.now()}\n")
+
     try:
         fibonacci_series = open("fibo.txt", "r").read().split(",")
         open("log.txt", "a").write("fibo.txt loaded\n")
@@ -20,8 +22,8 @@ def calc_fibonacci(iteration=100):
     [f.write(f",{i}") for i in fibonacci_series]
     open("log.txt", "a").write("fibonacci_series saved in fibo.txt\n")
 
+    open("log.txt", "a").write("\n")
+
 
 if __name__ == "__main__":
-    open("log.txt", "a").write(f"{datetime.now()}\n")
     calc_fibonacci()
-    open("log.txt", "a").write("\n")
