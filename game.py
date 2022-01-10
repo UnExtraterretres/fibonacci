@@ -20,16 +20,24 @@ class Game:
         # open the .txt file with mode "a"
         self.txt_file = open(self.file_path, "a")
 
+    def handling_events(self):
+        pass
+
     def update(self):
 
-        while eval(self.condition):
+        if eval(self.condition):
             self.fibonacci_series.append(int(self.fibonacci_series[-1])+int(self.fibonacci_series[-2]))
             self.txt_file.write(f",{str(self.fibonacci_series[-1])}")
 
-        self.states["running"] = False
+    def display(self):
+        pass
 
     def run(self):
         # game LOOP
         while self.states["running"]:
+            # check events
+            self.handling_events()
             # the logic of the game
             self.update()
+            # displays
+            self.display()
